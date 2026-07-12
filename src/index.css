@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+/* Enable class-based dark mode (toggled manually, not by OS preference) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-paper: #ede8de;
+  --color-paper-dark: #1a1815;
+  --color-card: #f8f5ee;
+  --color-card-dark: #24211b;
+  --color-ink: #1f2a3a;
+  --color-ink-dark: #ede8de;
+  --color-muted: #736b5c;
+  --color-muted-dark: #a89f8c;
+  --color-line: #cdc3ac;
+  --color-line-dark: #3c372c;
+  --color-rust: #b5533c;
+  --color-mustard: #b8862f;
+  --color-sage: #5f7d5a;
+
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  html.dark body {
+    background-color: var(--color-paper-dark);
+    color: var(--color-ink-dark);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-rust);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+.paper-texture {
+  background-image: radial-gradient(rgba(31, 42, 58, 0.035) 1px, transparent 1px);
+  background-size: 3px 3px;
+}
+
+html.dark .paper-texture {
+  background-image: radial-gradient(rgba(237, 232, 222, 0.035) 1px, transparent 1px);
+}
+
+.drawer-tab {
+  clip-path: polygon(6% 0%, 94% 0%, 100% 100%, 0% 100%);
+}
