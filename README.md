@@ -2,7 +2,7 @@
 
 A drag-and-drop task board styled like a library card catalog — drawers instead of columns, index cards instead of tickets. Built to show frontend fundamentals: component architecture, custom hooks, state management, and a design that isn't a default template.
 
-**Live demo:** https://Firqan.github.io/task-catalog/
+**Live demo:** https://furqan-labs.github.io/task-catalog/
 
 ## Features
 
